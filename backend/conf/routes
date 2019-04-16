@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+    # An example controller showing a sample home page
+    GET  /                         controllers.HomeController.index
+    # An example controller showing how to use dependency injection
+    GET     /count                      controllers.CountController.count
+    # An example controller showing how to write asynchronous code
+    GET     /message                    controllers.AsyncController.message
+
+    # Map static resources from the /public folder to the /assets URL path
+    GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+
+    POST /images                    controllers.ImagesController.uploadImage()
+    GET /images/:id                 controllers.ImagesController.downloadImage(id: String)
+    DELETE /images/:id              controllers.ImagesController.deleteImage(id: String)
+    GET /images/attraction/:id      controllers.ImagesController.getImagesByAttractionId(id: Integer)
+
+
+    POST /attractions                   controllers.AttractionsController.createAttraction()
+    PUT /attractions/city               controllers.AttractionsController.getAttractionByCity()
+    PUT /attractions/category           controllers.AttractionsController.getAttractionByCategory()
+    PUT /attractions/id                 controllers.AttractionsController.getAttractionById()
+    PUT /attractions/token              controllers.AttractionsController.getAttractionByUser()
+    DELETE /attractions/delete              controllers.AttractionsController.deleteAttractionById()
+    POST /attractions/edit              controllers.AttractionsController.updateAttractionById()
+    GET /attractions/all                controllers.AttractionsController.getAllAttractions()
+
+
+    POST /schedule/create               controllers.ScheduleController.createSchedule()
+    PUT /schedule/token                 controllers.ScheduleController.getScheduleByUser()
+    DELETE /schedule/delete             controllers.ScheduleController.deleteScheduleById()
+
+    POST /users                         controllers.UsersController.registerUser()
+	GET  /users/me                      controllers.UsersController.getCurrentUser()
+	POST  /users/update                  controllers.UsersController.updateUserByName()
+	PUT  /users/accesstoken             controllers.UsersController.getUserByAccessToken()
+	PUT /users/signin                   controllers.UsersController.signInUser()
+	PUT /users/signout                  controllers.UsersController.signOutUser(token :String)
